@@ -19,16 +19,16 @@ function Router() {
 }
 
 // NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+// - This site uses a premium dark theme optimized for AI services
+// - Color palette: Deep Midnight Blue (#0A0E14) background with Electric Cyan (#00F2FF) accents
+// - Typography: Sora (display) + Inter (body) + Space Mono (tech elements)
+// - Design: Glassmorphism, neon glows, smooth animations
 
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
-        defaultTheme="light"
-        // switchable
+        defaultTheme="dark"
       >
         <TooltipProvider>
           <Toaster />
