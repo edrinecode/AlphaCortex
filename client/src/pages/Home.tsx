@@ -22,21 +22,21 @@ export default function Home() {
       icon: Sparkles,
       title: "Generative AI",
       description: "Transform your business with cutting-edge generative AI solutions. From content creation to intelligent automation, we build custom models tailored to your unique needs.",
-      image: "/manus-storage/premium_service_1_a2a29286.png",
+      image: "/images/generative_ai.png",
       features: ["Custom LLM Fine-tuning", "RAG Systems", "AI Content Generation", "Intelligent Chatbots"]
     },
     {
       icon: BarChart3,
       title: "Data Intelligence",
       description: "Unlock insights from your data. Our advanced analytics platform transforms raw data into actionable intelligence for smarter decision-making.",
-      image: "/manus-storage/premium_service_2_7f0e3e85.png",
+      image: "/images/data_intelligence.png",
       features: ["Predictive Analytics", "Real-time Dashboards", "Data Visualization", "Business Intelligence"]
     },
     {
       icon: Brain,
       title: "AI Strategy",
       description: "Navigate the AI landscape with confidence. We provide comprehensive strategy consulting to help you implement AI effectively across your organization.",
-      image: "/manus-storage/premium_service_3_e2dd7ae0.png",
+      image: "/images/ai_strategy.png",
       features: ["AI Roadmap Planning", "Implementation Support", "Team Training", "Change Management"]
     }
   ];
@@ -143,7 +143,7 @@ export default function Home() {
             <div className="relative">
               <div className="glass rounded-2xl overflow-hidden glow-cyan">
                 <img 
-                  src="/manus-storage/hero_ai_africa_fd27939c.png" 
+                  src="/images/hero_ai_africa.png" 
                   alt="AI Hub - East Africa"
                   className="w-full h-auto"
                 />
