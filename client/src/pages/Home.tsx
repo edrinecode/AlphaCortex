@@ -3,13 +3,18 @@ import { ArrowRight, Zap, BarChart3, Brain, CheckCircle, Users, Sparkles, Globe 
 import { useState } from "react";
 
 /**
- * Premium AI Services Website - Home Page
+ * AlphaCortex - Premium AI Services Website
  * Design: Futuristic Elegance with African Soul
- * Color Scheme: Deep Midnight Blue + Electric Cyan + Neon Violet
+ * Features: Light & Dark Mode Toggle
+ * Color Scheme: Deep Midnight Blue + Electric Cyan + Neon Violet (Dark) | Clean White + Cyan + Violet (Light)
  * Typography: Sora (Display) + Inter (Body) + Space Mono (Tech)
  */
 
+import { useTheme } from "@/contexts/ThemeContext";
+import { Moon, Sun } from "lucide-react";
+
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
   const [activeService, setActiveService] = useState(0);
 
   const services = [
@@ -80,14 +85,23 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 glass border-b border-cyan-500/20">
         <div className="container flex items-center justify-between h-16">
-          <div className="text-2xl font-bold text-gradient">Generic AI</div>
+          <div className="text-2xl font-bold text-gradient">AlphaCortex</div>
           <div className="hidden md:flex gap-8">
             <a href="#services" className="hover:text-cyan-400 transition">Services</a>
             <a href="#why" className="hover:text-cyan-400 transition">Why Us</a>
             <a href="#cases" className="hover:text-cyan-400 transition">Cases</a>
             <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
           </div>
-          <Button className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold">Get Started</Button>
+          <div className="flex gap-4 items-center">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-cyan-500/10 transition"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <Button className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold">Get Started</Button>
+          </div>
         </div>
       </nav>
 
@@ -105,14 +119,14 @@ export default function Home() {
                 Empowering East Africa with <span className="text-gradient">Next-Gen Intelligence</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg">
-                Transform your business with AI solutions designed for African markets. We deliver cutting-edge generative AI, data intelligence, and strategic consulting.
+                AlphaCortex transforms your business with AI solutions designed for African markets. We deliver cutting-edge generative AI, data intelligence, and strategic consulting.
               </p>
-              <div className="flex gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold gap-2">
                   Start Your Journey <ArrowRight size={20} />
                 </Button>
                 <Button size="lg" variant="outline" className="border-cyan-500/50 hover:bg-cyan-500/10">
-                  Learn More
+                  Schedule Demo
                 </Button>
               </div>
             </div>
@@ -243,19 +257,19 @@ export default function Home() {
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">50+</div>
+              <div className="text-4xl font-bold text-cyan-400 mb-2">40+</div>
               <p className="text-muted-foreground">Projects Delivered</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">$100M+</div>
+              <div className="text-4xl font-bold text-cyan-400 mb-2">$80M+</div>
               <p className="text-muted-foreground">Value Created</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">15+</div>
+              <div className="text-4xl font-bold text-cyan-400 mb-2">12+</div>
               <p className="text-muted-foreground">Expert Team Members</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">98%</div>
+              <div className="text-4xl font-bold text-cyan-400 mb-2">96%</div>
               <p className="text-muted-foreground">Client Satisfaction</p>
             </div>
           </div>
@@ -289,37 +303,37 @@ export default function Home() {
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-lg font-bold text-gradient mb-4">Generic AI</h3>
+              <h3 className="text-lg font-bold text-gradient mb-4">AlphaCortex</h3>
               <p className="text-muted-foreground text-sm">Empowering East Africa with next-generation intelligence</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-cyan-400 transition">Generative AI</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">Data Intelligence</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">AI Strategy</a></li>
+                <li><a href="#services" className="hover:text-cyan-400 transition">Generative AI</a></li>
+                <li><a href="#services" className="hover:text-cyan-400 transition">Data Intelligence</a></li>
+                <li><a href="#services" className="hover:text-cyan-400 transition">AI Strategy</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-cyan-400 transition">About Us</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">Team</a></li>
+                <li><a href="#why" className="hover:text-cyan-400 transition">About Us</a></li>
+                <li><a href="#cases" className="hover:text-cyan-400 transition">Case Studies</a></li>
                 <li><a href="#" className="hover:text-cyan-400 transition">Blog</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Email: hello@genericai.africa</li>
-                <li>Phone: +254 (0) 700 000 000</li>
+                <li><a href="mailto:alphacortexai@gmail.com" className="hover:text-cyan-400 transition">alphacortexai@gmail.com</a></li>
+                <li><a href="tel:+254782830524" className="hover:text-cyan-400 transition">+254 782 830 524</a></li>
                 <li>Nairobi, Kenya</li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-cyan-500/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Generic AI. All rights reserved.</p>
+            <p>&copy; 2025 AlphaCortex. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-cyan-400 transition">Privacy Policy</a>
               <a href="#" className="hover:text-cyan-400 transition">Terms of Service</a>

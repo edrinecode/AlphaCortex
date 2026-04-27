@@ -19,16 +19,18 @@ function Router() {
 }
 
 // NOTE: About Theme
-// - This site uses a premium dark theme optimized for AI services
-// - Color palette: Deep Midnight Blue (#0A0E14) background with Electric Cyan (#00F2FF) accents
+// - AlphaCortex features both light and dark modes
+// - Light Mode: Clean white background with cyan and violet accents
+// - Dark Mode: Premium midnight blue with electric cyan and neon violet
 // - Typography: Sora (display) + Inter (body) + Space Mono (tech elements)
-// - Design: Glassmorphism, neon glows, smooth animations
+// - Users can toggle between themes using the sun/moon icon in the navigation
 
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
         defaultTheme="dark"
+        switchable
       >
         <TooltipProvider>
           <Toaster />
