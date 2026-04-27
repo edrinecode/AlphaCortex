@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, BarChart3, Brain, CheckCircle, Users, Sparkles, Globe } from "lucide-react";
+import { ArrowRight, Zap, BarChart3, Brain, CheckCircle, Users, Sparkles, Globe, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
 /**
@@ -43,22 +43,22 @@ export default function Home() {
 
   const caseStudies = [
     {
-      company: "FinTech Kenya",
-      challenge: "Needed AI-powered fraud detection",
-      result: "98% fraud detection accuracy, $2M saved annually",
-      industry: "Financial Services"
-    },
-    {
-      company: "E-Commerce Uganda",
-      challenge: "Personalization at scale",
-      result: "45% increase in conversion rate",
+      company: "HelloQuip",
+      challenge: "Building an AI-powered e-commerce platform",
+      result: "Fully functional online store with intelligent product recommendations",
       industry: "E-Commerce"
     },
     {
-      company: "Agricultural Tech Rwanda",
-      challenge: "Crop yield optimization",
-      result: "35% improvement in yield predictions",
-      industry: "AgriTech"
+      company: "CareMax",
+      challenge: "Creating an AI-powered WhatsApp bot with human handoff capability",
+      result: "Seamless customer service automation with human escalation",
+      industry: "Customer Service"
+    },
+    {
+      company: "Enterprise Solutions",
+      challenge: "Digital transformation with AI integration",
+      result: "40% operational efficiency improvement",
+      industry: "Enterprise"
     }
   ];
 
@@ -93,6 +93,15 @@ export default function Home() {
             <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
           </div>
           <div className="flex gap-4 items-center">
+            <a
+              href="https://wa.me/256782830524"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg hover:bg-cyan-500/10 transition text-green-500 hover:text-green-400"
+              aria-label="Contact on WhatsApp"
+            >
+              <MessageCircle size={20} />
+            </a>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-cyan-500/10 transition"
