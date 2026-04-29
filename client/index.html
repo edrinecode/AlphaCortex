@@ -8,7 +8,8 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <meta name="description" content="AlphaCortex - East Africa's Leading AI Services Platform. Empowering businesses with Generative AI, Data Intelligence, and AI Strategy." />
     <meta name="theme-color" content="#0A0E14" />
-    <title>AlphaCortex - AI Services for East Africa</title>    
+    <title>AlphaCortex - AI Services for East Africa</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%230A0E14'>α</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -17,10 +18,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <!-- Analytics script - only loaded if VITE_ANALYTICS_ENDPOINT is defined -->
+    <script>
+      (function() {
+        const endpoint = '%VITE_ANALYTICS_ENDPOINT%';
+        const websiteId = '%VITE_ANALYTICS_WEBSITE_ID%';
+        if (endpoint && endpoint !== '%VITE_ANALYTICS_ENDPOINT%' && websiteId && websiteId !== '%VITE_ANALYTICS_WEBSITE_ID%') {
+          const script = document.createElement('script');
+          script.defer = true;
+          script.src = endpoint + '/umami';
+          script.setAttribute('data-website-id', websiteId);
+          document.body.appendChild(script);
+        }
+      })();
+    </script>
   </body>
 
 </html>
