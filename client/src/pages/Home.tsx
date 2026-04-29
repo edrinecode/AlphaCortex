@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, BarChart3, Brain, CheckCircle, Users, Sparkles, Globe, MessageCircle } from "lucide-react";
+import { ArrowRight, BarChart3, Brain, CheckCircle, Sparkles, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
@@ -83,23 +83,7 @@ export default function Home() {
     }
   ];
 
-  const whyChooseUs = [
-    {
-      icon: Globe,
-      title: "East Africa Expertise",
-      description: "Deep understanding of the regional market, challenges, and opportunities"
-    },
-    {
-      icon: Zap,
-      title: "Cutting-Edge Technology",
-      description: "Latest AI models and frameworks deployed with enterprise-grade reliability"
-    },
-    {
-      icon: Users,
-      title: "Dedicated Support",
-      description: "Expert team committed to your success, from implementation to optimization"
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -109,7 +93,6 @@ export default function Home() {
           <div className="text-2xl font-bold text-gradient">AlphaCortex</div>
           <div className="hidden md:flex gap-8">
             <a href="#services" className="hover:text-cyan-400 transition">Services</a>
-            <a href="#why" className="hover:text-cyan-400 transition">Why Us</a>
             <a href="#cases" className="hover:text-cyan-400 transition">Cases</a>
             <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
           </div>
@@ -243,27 +226,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section id="why" className="py-20">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Choose Generic AI</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              We combine deep regional expertise with world-class technology
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {whyChooseUs.map((item, idx) => (
-              <div key={idx} className="glass rounded-xl p-8 hover:glow-cyan transition-all duration-300">
-                <item.icon className="w-12 h-12 text-cyan-400 mb-4" />
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Case Studies */}
       <section id="cases" className="py-20 bg-gradient-to-b from-background via-background to-cyan-950/10">
@@ -359,7 +322,6 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#why" className="hover:text-cyan-400 transition">About Us</a></li>
                 <li><a href="#cases" className="hover:text-cyan-400 transition">Case Studies</a></li>
                 <li><a href="#" className="hover:text-cyan-400 transition">Blog</a></li>
               </ul>
