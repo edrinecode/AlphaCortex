@@ -11,12 +11,12 @@ export default function WhatsAppButton() {
       {/* Animated background glow */}
       <div className="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300 animate-pulse"></div>
       
-      {/* Main button with Image */}
-      <div className="relative w-16 h-16 md:w-20 md:h-20 transition-all duration-300 transform group-hover:scale-110 flex items-center justify-center">
+      {/* Main button with Image - Reduced size */}
+      <div className="relative w-12 h-12 md:w-14 md:h-14 transition-all duration-300 transform group-hover:scale-110 flex items-center justify-center">
         <img 
           src="/images/whatsapp_logo.png" 
           alt="WhatsApp" 
-          className="w-full h-full object-contain drop-shadow-2xl"
+          className="w-full h-full object-contain drop-shadow-xl"
         />
       </div>
       
@@ -27,7 +27,7 @@ export default function WhatsAppButton() {
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
           }
         }
         
