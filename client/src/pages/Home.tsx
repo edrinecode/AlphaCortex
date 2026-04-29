@@ -93,15 +93,6 @@ export default function Home() {
             <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
           </div>
           <div className="flex gap-4 items-center">
-            <a
-              href="https://wa.me/256782830524"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg hover:bg-cyan-500/10 transition text-green-500 hover:text-green-400"
-              aria-label="Contact on WhatsApp"
-            >
-              <MessageCircle size={20} />
-            </a>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-cyan-500/10 transition"
