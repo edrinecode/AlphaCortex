@@ -9,7 +9,7 @@
     <meta name="description" content="AlphaCortex - East Africa's Leading AI Services Platform. Empowering businesses with Generative AI, Data Intelligence, and AI Strategy." />
     <meta name="theme-color" content="#0A0E14" />
     <title>AlphaCortex - AI Services for East Africa</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%230A0E14'>α</text></svg>" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -18,12 +18,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- Analytics script - only loaded if VITE_ANALYTICS_ENDPOINT is defined -->
+    
+    <!-- Analytics script - safely injected via environment variables if present -->
     <script>
       (function() {
-        const endpoint = '%VITE_ANALYTICS_ENDPOINT%';
-        const websiteId = '%VITE_ANALYTICS_WEBSITE_ID%';
-        if (endpoint && endpoint !== '%VITE_ANALYTICS_ENDPOINT%' && websiteId && websiteId !== '%VITE_ANALYTICS_WEBSITE_ID%') {
+        // We use a safer way to check for Vite environment variables
+        // These will be replaced by Vite during build if they exist
+        const endpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
+        const websiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
+        
+        if (endpoint && websiteId) {
           const script = document.createElement('script');
           script.defer = true;
           script.src = endpoint + '/umami';

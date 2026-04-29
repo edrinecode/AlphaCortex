@@ -20,15 +20,18 @@ export default function ContactForm() {
     setLoading(true);
 
     try {
+      if (!db) {
+        throw new Error("Firebase database is not initialized. Please check your environment variables.");
+      }
       await addDoc(collection(db, "contacts"), {
         ...formData,
         createdAt: serverTimestamp(),
       });
       toast.success("Message sent successfully! We'll get back to you soon.");
       setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error adding document: ", error);
-      toast.error("Failed to send message. Please try again.");
+      toast.error(error.message || "Failed to send message. Please try again.");
     } finally {
       setLoading(false);
     }

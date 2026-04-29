@@ -14,16 +14,33 @@ const firebaseConfig = {
   appId: env.VITE_FIREBASE_APP_ID || env.FIREBASE_APP_ID,
 };
 
-if (Object.values(firebaseConfig).some((value) => !value)) {
-  console.error(
-    "Missing Firebase configuration. Ensure all VITE_FIREBASE_* or FIREBASE_* env variables are set.",
-    { firebaseConfig }
-  );
-  throw new Error(
-    "Missing Firebase configuration. Ensure all VITE_FIREBASE_* or FIREBASE_* env variables are set.",
-  );
+const missingKeys = Object.entries(firebaseConfig)
+  .filter(([_, value]) => !value)
+  .map(([key]) => key);
+
+if (missingKeys.length > 0) {
+  const errorMsg = `Missing Firebase configuration keys: ${missingKeys.join(", ")}. Ensure all VITE_FIREBASE_* or FIREBASE_* env variables are set in Vercel.`;
+  console.error(errorMsg, {
+    availableEnvKeys: Object.keys(env).filter(k => k.includes("FIREBASE")),
+    configAttempt: firebaseConfig
+  });
+  
+  // Throwing error here will crash the app, which is what the user is seeing.
+  // Let's make it a warning instead so the app can at least mount, 
+  // but Firebase features will fail gracefully.
+  console.warn("Firebase initialization skipped due to missing config.");
 }
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+// Initialize Firebase only if we have the config
+let db: any = null;
+
+try {
+  if (missingKeys.length === 0) {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+  }
+} catch (err) {
+  console.error("Failed to initialize Firebase:", err);
+}
+
+export { db };
