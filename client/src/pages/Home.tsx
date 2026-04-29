@@ -67,13 +67,15 @@ export default function Home() {
       company: "HelloQuip",
       challenge: "Building an AI-powered e-commerce platform",
       result: "Fully functional online store with intelligent product recommendations",
-      industry: "E-Commerce"
+      industry: "E-Commerce",
+      url: "https://helloquip-zr8b.vercel.app/"
     },
     {
       company: "CareMax",
       challenge: "Creating an AI-powered WhatsApp bot with human handoff capability",
       result: "Seamless customer service automation with human escalation",
-      industry: "Customer Service"
+      industry: "Customer Service",
+      url: "https://caremax.online"
     },
     {
       company: "Enterprise Solutions",
@@ -254,6 +256,13 @@ export default function Home() {
                     <p className="text-muted-foreground text-sm mb-1">Result</p>
                     <p className="font-semibold text-cyan-400">{study.result}</p>
                   </div>
+                  {study.url && (
+                    <Button asChild size="sm" variant="outline" className="border-cyan-500/50 hover:bg-cyan-500/10">
+                      <a href={study.url} target="_blank" rel="noopener noreferrer">
+                        Visit
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             ))}
