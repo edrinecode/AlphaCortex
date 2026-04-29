@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, BarChart3, Brain, CheckCircle, Users, Sparkles, Globe, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactForm from "@/components/ContactForm";
 
 /**
  * AlphaCortex - Premium AI Services Website
@@ -321,25 +322,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Contact Section */}
       <section id="contact" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-violet-500"></div>
         </div>
         
-        <div className="container relative z-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-            Let's discuss how Generic AI can help you unlock the power of artificial intelligence
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold gap-2">
-              Schedule a Demo <ArrowRight size={20} />
-            </Button>
-            <Button size="lg" variant="outline" className="border-cyan-500/50 hover:bg-cyan-500/10">
-              Contact Sales
-            </Button>
+        <div className="container relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Get in touch with us to discuss how AlphaCortex can help you unlock the power of artificial intelligence.
+            </p>
           </div>
+          
+          <ContactForm />
         </div>
       </section>
 
