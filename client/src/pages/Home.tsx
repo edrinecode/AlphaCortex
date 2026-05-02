@@ -28,6 +28,10 @@ export default function Home() {
     {
       src: "/images/caremax_screenshot.png",
       alt: "CareMax - AI Clinical Triage"
+    },
+    {
+      src: "/images/heloquip_slider.png",
+      alt: "HeloQuip - AI E-commerce Platform"
     }
   ];
 
@@ -340,13 +344,13 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="mailto:alphacortexai@gmail.com" className="hover:text-cyan-400 transition">alphacortexai@gmail.com</a></li>
                 <li><a href="tel:+254782830524" className="hover:text-cyan-400 transition">+254 782 830 524</a></li>
-                <li>Nairobi, Kenya</li>
+                <li>Kampala, Uganda, 2026</li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-cyan-500/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>&copy; 2025 AlphaCortex. All rights reserved.</p>
+            <p>&copy; 2026 AlphaCortex. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-cyan-400 transition">Privacy Policy</a>
               <a href="#" className="hover:text-cyan-400 transition">Terms of Service</a>
