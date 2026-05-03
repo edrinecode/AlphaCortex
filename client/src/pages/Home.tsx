@@ -3,7 +3,7 @@ import { ArrowRight, BarChart3, Brain, CheckCircle, Sparkles, MessageCircle } fr
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
-import { HeroVisualization } from "@/components/HeroVisualization";
+// Removed HeroVisualization for a static high-tech 3D image
 
 /**
  * AlphaCortex - Premium AI Services Website
@@ -19,16 +19,7 @@ import { Moon, Sun } from "lucide-react";
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
   const [activeService, setActiveService] = useState(0);
-  const [heroVisualizationIndex, setHeroVisualizationIndex] = useState(0);
-
-  const visualizationCount = 3; // Number of different 3D visualizations
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroVisualizationIndex((prev) => (prev + 1) % visualizationCount);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, [visualizationCount]);
+  // Static hero image approach
 
   const services = [
     {
@@ -131,32 +122,19 @@ export default function Home() {
             
             <div className="relative aspect-video">
               <div className="glass rounded-2xl overflow-hidden glow-cyan h-full relative">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={heroVisualizationIndex}
-                    initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <HeroVisualization index={heroVisualizationIndex} />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              
-              {/* Visualization Indicators */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-                {Array.from({ length: visualizationCount }).map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setHeroVisualizationIndex(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      heroVisualizationIndex === idx ? "w-8 bg-cyan-500" : "bg-cyan-500/30"
-                    }`}
-                    aria-label={`Go to visualization ${idx + 1}`}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className="absolute inset-0"
+                >
+                  <img 
+                    src="/images/hero_ai_3d_abstract.png" 
+                    alt="AlphaCortex AI Intelligence"
+                    className="w-full h-full object-cover"
                   />
-                ))}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+                </motion.div>
               </div>
             </div>
           </div>
