@@ -3,6 +3,7 @@ import { ArrowRight, BarChart3, Brain, CheckCircle, Sparkles, MessageCircle } fr
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
+import { HeroVisualization } from "@/components/HeroVisualization";
 
 /**
  * AlphaCortex - Premium AI Services Website
@@ -18,29 +19,16 @@ import { Moon, Sun } from "lucide-react";
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
   const [activeService, setActiveService] = useState(0);
-  const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const [heroVisualizationIndex, setHeroVisualizationIndex] = useState(0);
 
-  const heroImages = [
-    {
-      src: "/images/hero_ai_africa.png",
-      alt: "AI Hub - East Africa"
-    },
-    {
-      src: "/images/caremax_screenshot.png",
-      alt: "CareMax - AI Clinical Triage"
-    },
-    {
-      src: "/images/heloquip_slider.png",
-      alt: "HeloQuip - AI E-commerce Platform"
-    }
-  ];
+  const visualizationCount = 3; // Number of different 3D visualizations
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setHeroImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+      setHeroVisualizationIndex((prev) => (prev + 1) % visualizationCount);
+    }, 8000);
     return () => clearInterval(timer);
-  }, [heroImages.length]);
+  }, [visualizationCount]);
 
   const services = [
     {
@@ -145,32 +133,28 @@ export default function Home() {
               <div className="glass rounded-2xl overflow-hidden glow-cyan h-full relative">
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={heroImageIndex}
-                    initial={{ opacity: 0, x: 20, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, x: -20, filter: "blur(10px)" }}
+                    key={heroVisualizationIndex}
+                    initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="absolute inset-0"
                   >
-                    <img 
-                      src={heroImages[heroImageIndex].src} 
-                      alt={heroImages[heroImageIndex].alt}
-                      className="w-full h-full object-cover"
-                    />
+                    <HeroVisualization index={heroVisualizationIndex} />
                   </motion.div>
                 </AnimatePresence>
               </div>
               
-              {/* Image Indicators */}
+              {/* Visualization Indicators */}
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-                {heroImages.map((_, idx) => (
+                {Array.from({ length: visualizationCount }).map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setHeroImageIndex(idx)}
+                    onClick={() => setHeroVisualizationIndex(idx)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      heroImageIndex === idx ? "w-8 bg-cyan-500" : "bg-cyan-500/30"
+                      heroVisualizationIndex === idx ? "w-8 bg-cyan-500" : "bg-cyan-500/30"
                     }`}
-                    aria-label={`Go to image ${idx + 1}`}
+                    aria-label={`Go to visualization ${idx + 1}`}
                   />
                 ))}
               </div>
